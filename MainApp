@@ -105,14 +105,14 @@ public class MainApp {
 	   System.out.println("Nhap vi tri muon chen");
 	   int z = sc.nextInt();
 //	   Luu y de chon dung vi tri chon khoang trong giua cac so theo thu tu vd: (0) 4 (1) 3 (2) 7 (3) 8 (4) (so trong ngoac la vi tri khoang trong)
-	   list1.add(n,z);
+	   list1.add(z,n);
 	   System.out.println("Danh sach sau khi chen" + list1);
 	   
 	   System.out.println("Nhap phan tu muon chen vao danh sach dao");
 	   int n2 = sc.nextInt();
 	   System.out.println("Nhap vi tri muon chen");
 	   int z2 = sc.nextInt();
-	   list2.add(n2,z2);
+	   list2.add(z2,n2);
 	   System.out.println("Danh sach dao sau khi chen" + list2);
    }
 }
