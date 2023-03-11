@@ -1,61 +1,43 @@
 package advance.dev;
 
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Scanner;
 
 public class MainApp {
 
     public static void main(String[] args) {
     	System.out.println("Bai 1");
-        LinkedList<Integer> list1 = createListAscendingOrder();
-        LinkedList<Integer> list2 = createListDescendingOrder();
-        printList(list1,list2);
-        
-        locPhanTu1(list1);
-        locPhanTu2(list2);
-        loaiBoSoLe(list1,list2);
-    }
-
-    private static LinkedList<Integer> createListAscendingOrder() {
-    	System.out.println("Cau a");
-        LinkedList<Integer> list = new LinkedList<Integer>();
+        LinkedList<Integer> list1 = new LinkedList<>();
+        LinkedList<Integer> list2 = new LinkedList<>();
         Scanner input = new Scanner(System.in);
         System.out.print("Nhap so luong phan tu cua day: ");
         int n = input.nextInt();
         System.out.println("Nhap cac phan tu cua day:");
         for (int i = 0; i < n; i++) {
             int a = input.nextInt();
-            list.add(a);
-        }
-        return list;
+            list1.add(a);
+            list2.addFirst(a);}  
+        printList(list1,list2);        
+        locPhanTu1(list1);
+        locPhanTu2(list2);
+        loaiBoSoLe(list1,list2);
+        xoaPhanTu(list1, list2);
+        chenPT(list1, list2);
     }
 
-    private static LinkedList<Integer> createListDescendingOrder() {
-    	System.out.println("Cau b");
-        LinkedList<Integer> list = new LinkedList<Integer>();
-        Scanner input = new Scanner(System.in);
-        System.out.print("Nhap so luong phan tu cua day: ");
-        int n = input.nextInt();
-        System.out.println("Nhap cac phan tu cua day theo thu tu dao nguoc:");
-        for (int i = 0; i < n; i++) {
-            int b = input.nextInt();
-            list.addFirst(b);
-        }
-        return list;
-    }
+   
+    
 
-    private static void printList(LinkedList<Integer> list, LinkedList<Integer> list2) {
+    private static void printList(LinkedList<Integer> list1, LinkedList<Integer> list2) {
     	System.out.println("Cau c");
         System.out.println("Danh sach phan tu cua day la:");
-        for (int a : list) {
-            System.out.println(a + " ");
-        }
-        System.out.println("Danh sach phan tu cua day sau khi dao la:");
-        for (int b : list) {
-            System.out.println(b + " ");
+            System.out.println(list1 + " ");  
+        System.out.println("Danh sach phan tu cua day sau khi dao la:");   
+            System.out.println(list2 + " ");
         }
 
-    }
+    
     private static void locPhanTu1(LinkedList<Integer> list1) {
 		System.out.println("Cau 2");
 		for (int i = 0; i < list1.size() - 1; i++) {
@@ -99,6 +81,38 @@ public class MainApp {
             }
             
         }
-		System.out.println("Danh sach sau khi loai bo so le cua ds dao la:" + list2);
+		System.out.println("Danh sach dao sau khi loai bo so le la:" + list2);
 	}
+    private static void xoaPhanTu(LinkedList<Integer> list1,LinkedList<Integer> list2) {
+       System.out.println("Cau 4");
+    	Scanner sc = new Scanner(System.in);
+    	
+    	 System.out.print("Nhap phan tu muon xoa trong danh sach:");
+         int num = sc.nextInt();
+         list1.remove(Integer.valueOf(num));
+         System.out.println("Danh sach sau khi bi xoa:" + list1);
+         
+         System.out.print("Nhap phan tu muon xoa trong danh sach dao: ");
+         int num2 = sc.nextInt();
+         list2.remove(Integer.valueOf(num2));
+         System.out.println("Danh sach dao sau khi bi xoa:" + list2);
+    }
+   private static void chenPT(LinkedList<Integer> list1,LinkedList<Integer> list2) {
+	   Scanner sc = new Scanner(System.in);
+	   System.out.println("Nhap so luong phan tu muon chen");
+	   System.out.println("Nhap phan tu muon chen vao danh sach");
+	   int n = sc.nextInt();
+	   System.out.println("Nhap vi tri muon chen");
+	   int z = sc.nextInt();
+//	   Luu y de chon dung vi tri chon khoang trong giua cac so theo thu tu vd: (0) 4 (1) 3 (2) 7 (3) 8 (4) (so trong ngoac la vi tri khoang trong)
+	   list1.add(n,z);
+	   System.out.println("Danh sach sau khi chen" + list1);
+	   
+	   System.out.println("Nhap phan tu muon chen vao danh sach dao");
+	   int n2 = sc.nextInt();
+	   System.out.println("Nhap vi tri muon chen");
+	   int z2 = sc.nextInt();
+	   list2.add(n2,z2);
+	   System.out.println("Danh sach dao sau khi chen" + list2);
+   }
 }
