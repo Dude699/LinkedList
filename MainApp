@@ -1,0 +1,107 @@
+package advance.dev;
+
+import java.util.LinkedList;
+import java.util.Scanner;
+
+public class MainApp {
+
+    public static void main(String[] args) {
+    	System.out.println("Bai 1");
+        LinkedList<Integer> list1 = createListAscendingOrder();
+        LinkedList<Integer> list2 = createListDescendingOrder();
+        printList(list1);
+        printList(list2);
+        locPhanTu1(list1);
+        locPhanTu2(list2);
+        loaiBoSoLe(list1,list2);
+    }
+
+    private static LinkedList<Integer> createListAscendingOrder() {
+    	System.out.println("Cau a");
+        LinkedList<Integer> list = new LinkedList<Integer>();
+        Scanner input = new Scanner(System.in);
+        System.out.print("Nhap so luong phan tu cua day: ");
+        int n = input.nextInt();
+        System.out.println("Nhap cac phan tu cua day:");
+        for (int i = 0; i < n; i++) {
+            int a = input.nextInt();
+            list.add(a);
+        }
+        return list;
+    }
+
+    private static LinkedList<Integer> createListDescendingOrder() {
+    	System.out.println("Cau b");
+        LinkedList<Integer> list = new LinkedList<Integer>();
+        Scanner input = new Scanner(System.in);
+        System.out.print("Nhap so luong phan tu cua day: ");
+        int n = input.nextInt();
+        System.out.println("Nhap cac phan tu cua day theo thu tu dao nguoc:");
+        for (int i = 0; i < n; i++) {
+            int b = input.nextInt();
+            list.addFirst(b);
+        }
+        return list;
+    }
+
+    private static void printList(LinkedList<Integer> list) {
+    	System.out.println("Cau c");
+        System.out.println("Danh sach phan tu cua day la:");
+        for (int a : list) {
+            System.out.println(a + " ");
+        }
+        System.out.println("Danh sach phan tu cua day la:");
+        for (int b : list) {
+            System.out.println(b + " ");
+        }
+
+    }
+    private static void locPhanTu1(LinkedList<Integer> list1) {
+		System.out.println("Cau 2");
+		for (int i = 0; i < list1.size() - 1; i++) {
+			if (list1.get(i) == list1.get(i )) {
+				list1.remove(i);
+				i--;
+			}else {
+				System.out.println("Danh sach khong co phan tu bi trung");
+			}
+
+		}
+		System.out.println("Phan tu bi trung trong danh sach la:" + list1);
+	}
+
+    
+    private static void locPhanTu2(LinkedList<Integer> list2) {
+		for (int i = 0; i < list2.size() - 1; i++) {
+			if (list2.get(i) == list2.get(i )) {
+				list2.remove(i);
+				i--;
+			}	else {
+				System.out.println("Danh sach khong co phan tu bi trung");
+			}
+		}
+		System.out.println("Phan tu bi trung trong danh sach dao nguoc la:" +list2);
+	}
+
+    private static void loaiBoSoLe(LinkedList<Integer> list1,LinkedList<Integer> list2) {
+    	System.out.println("Cau 3");
+		for (int i = 0; i < list1.size(); i++) {
+            if (list1.get(i) % 2 != 0) {
+                list1.remove(i);
+                i--;
+           
+            }
+            System.out.println("Danh sach sau khi loai bo so le la:" + list1);
+		}
+		
+		for (int i = 0; i < list2.size(); i++) {
+            if (list2.get(i) % 2 != 0) {
+                list2.remove(i);
+                i--;
+               
+            }
+            System.out.println("Danh sach sau khi loai bo so le la:" + list2);
+        }
+		
+	}
+}
