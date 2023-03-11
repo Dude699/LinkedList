@@ -9,8 +9,8 @@ public class MainApp {
     	System.out.println("Bai 1");
         LinkedList<Integer> list1 = createListAscendingOrder();
         LinkedList<Integer> list2 = createListDescendingOrder();
-        printList(list1);
-        printList(list2);
+        printList(list1,list2);
+        
         locPhanTu1(list1);
         locPhanTu2(list2);
         loaiBoSoLe(list1,list2);
@@ -44,13 +44,13 @@ public class MainApp {
         return list;
     }
 
-    private static void printList(LinkedList<Integer> list) {
+    private static void printList(LinkedList<Integer> list, LinkedList<Integer> list2) {
     	System.out.println("Cau c");
         System.out.println("Danh sach phan tu cua day la:");
         for (int a : list) {
             System.out.println(a + " ");
         }
-        System.out.println("Danh sach phan tu cua day la:");
+        System.out.println("Danh sach phan tu cua day sau khi dao la:");
         for (int b : list) {
             System.out.println(b + " ");
         }
@@ -59,28 +59,24 @@ public class MainApp {
     private static void locPhanTu1(LinkedList<Integer> list1) {
 		System.out.println("Cau 2");
 		for (int i = 0; i < list1.size() - 1; i++) {
-			if (list1.get(i) == list1.get(i )) {
+			if (list1.get(i) == list1.get(i+1 )) {
 				list1.remove(i);
 				i--;
-			}else {
-				System.out.println("Danh sach khong co phan tu bi trung");
 			}
 
 		}
-		System.out.println("Phan tu bi trung trong danh sach la:" + list1);
+		System.out.println("Danh sach sau khi da loai bo so trung la:" + list1);
 	}
 
     
     private static void locPhanTu2(LinkedList<Integer> list2) {
 		for (int i = 0; i < list2.size() - 1; i++) {
-			if (list2.get(i) == list2.get(i )) {
+			if (list2.get(i) == list2.get(i+1 )) {
 				list2.remove(i);
 				i--;
-			}	else {
-				System.out.println("Danh sach khong co phan tu bi trung");
-			}
+			}	
 		}
-		System.out.println("Phan tu bi trung trong danh sach dao nguoc la:" +list2);
+		System.out.println("Danh sach dao sau khi da loai bo so trung la:" +list2);
 	}
 
     private static void loaiBoSoLe(LinkedList<Integer> list1,LinkedList<Integer> list2) {
@@ -91,17 +87,18 @@ public class MainApp {
                 i--;
            
             }
-            System.out.println("Danh sach sau khi loai bo so le la:" + list1);
+           
 		}
-		
+		 System.out.println("Danh sach sau khi loai bo so le la:" + list1);
+		 
 		for (int i = 0; i < list2.size(); i++) {
             if (list2.get(i) % 2 != 0) {
                 list2.remove(i);
                 i--;
                
             }
-            System.out.println("Danh sach sau khi loai bo so le la:" + list2);
+            
         }
-		
+		System.out.println("Danh sach sau khi loai bo so le cua ds dao la:" + list2);
 	}
 }
